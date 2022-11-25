@@ -1,0 +1,21 @@
+{% extends 'payment/base.html' %}
+{% block content %}
+    <h1>Оформление</h1>
+    <div class="order-info">
+        <h3>Ваш заказ</h3>
+        <ul>
+            {% for item in cart %}
+                <li>
+                    {{ item.quantity }}x {{ item.item.name }}
+                    <span>₽{{ item.total_price }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Всего: ₽{{ cart.get_total_price }}</p>
+    </div>
+    <form action="." method="POST">
+        {{ form.as_p }}
+        <p><input type="submit" value="Оплатить"></p>
+        {% csrf_token %}
+    </form>
+{% endblock content %}

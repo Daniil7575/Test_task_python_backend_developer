@@ -1,0 +1,25 @@
+{% extends 'payment/base.html' %}
+{% block content %}
+<section>
+    <div class="item">
+        <div class="description">
+            <div>
+                
+                {% for item in items %}
+                    <a href="{{ item.get_absolute_url }}">
+                        <h4>{{ item.name }}</h4>
+                    </a>
+                    <p>{{ item.description|truncatewords:50 }}</p>
+                    <p>Цена: ₽{{ item.price }}</p>
+                    <form action="{% url 'add-to-cart' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">Добавить</button>
+                    </form>
+                    
+                    <hr />
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

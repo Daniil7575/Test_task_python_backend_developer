@@ -1,0 +1,11 @@
+{% extends 'payment/base.html' %}
+{% block title %}{% endblock title %}
+{% block content %}
+    <h2>{{ item.name }}</h2>
+    <p>{{ item.description }}</p>
+    <p>Цена: ₽{{ item.price }}</p>
+    <form action="{% url 'add-to-cart' item.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Добавить</button>
+    </form>
+{% endblock content %}
