@@ -34,5 +34,3 @@ sudo docker compose exec web python3 manage.py createsuperuser
 `create/` - создание заказа в модели Order и перенаправление на формирование stripeCheckoutSession
 
 `clear-cart/` - очистка корзины
-
-`asd` - asd
