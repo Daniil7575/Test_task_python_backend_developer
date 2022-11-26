@@ -1,6 +1,6 @@
 import psycopg2
 import os
-
+import stripe
 
 # Данный файл необходим для заполнения БД данными для демострации работы
 
@@ -14,6 +14,7 @@ def get_db_connection():
     return conn
 
 
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 conn = get_db_connection()
 cur = conn.cursor()
 data_item = (
@@ -30,7 +31,13 @@ data_coupon = (
     (3, '10off', '2022-11-26 15:00:00', '2022-11-26 19:00:00', 5, True),
 )
 [cur.execute(f"insert into public.payment_item values('{id}', '{name}', '{desc}', '{price}') on conflict(id) do nothing;") for id, name, desc, price in data_item]
-[cur.execute(f"insert into public.coupon_coupon values('{id}', '{code}, '{vfrom}', '{vto}', '{discount}', '{active}') on conflict(id) do nothing;") for id, code, vfrom, vto, discount, active in data_coupon]
+[(cur.execute(f"insert into public.coupon_coupon values('{id}', '{code}', '{vfrom}', '{vto}', '{discount}', '{active}') on conflict(id) do nothing;")) for id, code, vfrom, vto, discount, active in data_coupon]
+for _, code, _, _, discount, _ in data_coupon:
+    try:
+        stripe.Coupon.create(id=code, percent_off=discount)
+    except stripe.error.InvalidRequestError:
+        print(f'[INFO] Coupon "{code}" with {discount}% off already exists')
+
 conn.commit()
 cur.close()
 conn.close()
