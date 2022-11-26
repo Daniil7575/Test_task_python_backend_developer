@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/Daniil7575/Test_task_python_backend_developer.git
 ```
-2) Откройте файл ***.env*** и задайте совоими данными переменные окружения `STRIPE_PUBLIC_KEY` `STRIPE_SECRET_KEY`
+2) Откройте файл ***.env*** и напишите свои данные от stripe в переменные окружения `STRIPE_PUBLIC_KEY` `STRIPE_SECRET_KEY`
 
 3) Перейдите в папку ***stripe_project*** и соберите, а затем запустите контейнер
 ```
