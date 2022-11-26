@@ -3,19 +3,20 @@
 ```
 git clone https://github.com/Daniil7575/Test_task_python_backend_developer.git
 ```
+2) Откройте файл ***.env*** и задайте совоими данными переменные окружения `STRIPE_PUBLIC_KEY` `STRIPE_SECRET_KEY`
 
-2) Перейдите в папку ***stripe_project*** и соберите, а затем запустите контейнер
+3) Перейдите в папку ***stripe_project*** и соберите, а затем запустите контейнер
 ```
 sudo docker compose build
 sudo docker compose up
 ```
 
-3) По желанию создайте суперпользователя на сервере для взаимодействия с админ-панелью.
+4) По желанию создайте суперпользователя на сервере для взаимодействия с админ-панелью.
 ```
 sudo docker compose exec web python3 manage.py createsuperuser
 ```
 
-4) Зайдите на веб интерфейс по адресу - `http://0.0.0.0:8000/item/`
+5) Зайдите на веб интерфейс по адресу - `http://0.0.0.0:8000/item/`
 
 Эндпоинты:
 
