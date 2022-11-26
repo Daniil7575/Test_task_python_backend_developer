@@ -17,7 +17,6 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 class CreateCheckoutSessionView(View):
     def get(self, request, *args, **kwargs):
         order = Order.objects.get(id=self.kwargs['pk'])
-        order.is_formed = True
         order.save()
         item_quantities = order.items.values('item_id') \
             .annotate(quantity=Sum('quantity'))
@@ -45,6 +44,9 @@ class CreateCheckoutSessionView(View):
                 'quantity': 1,
             }],
             mode='payment',
+            discounts=[{
+                'coupon': f'{order.coupon_code}',
+            }] if order.coupon_code else None,
             success_url=domain + '/success/?session_id={CHECKOUT_SESSION_ID}',
             cancel_url=domain + '/cancel/',
         )

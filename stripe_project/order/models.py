@@ -13,6 +13,12 @@ class Order(models.Model):
         auto_now_add=True,
         verbose_name='Дата создания'
     )
+    coupon_code = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+        verbose_name='Купон на скидку'
+    )
 
     class Meta:
         ordering = ('paid', '-created')
