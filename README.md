@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/Daniil7575/Test_task_python_backend_developer.git
 ```
-2) Откройте файл ***.env*** и напишите свои данные от stripe в переменные окружения `STRIPE_PUBLIC_KEY` `STRIPE_SECRET_KEY`
+2) Откройте файл ***.env*** и напишите свои данные от stripe в переменные окружения `STRIPE_PUBLIC_KEY` `STRIPE_SECRET_KEY` (По хорошему он должен быть полностью пустым изначально, но дабы не тратить время нужно заполнить только данные от stripe)
 
 3) Перейдите в папку ***stripe_project*** и соберите, а затем запустите контейнер
 ```
@@ -16,7 +16,8 @@ sudo docker compose up
 sudo docker compose exec web python3 manage.py createsuperuser
 ```
 
-5) Зайдите на веб интерфейс по адресу - `http://0.0.0.0:8000/item/`
+5) Зайдите на веб интерфейс по адресу - `http://0.0.0.0:8000/item/` 
+                                 либо - `http://localhost:8000/item/`
 
 Эндпоинты:
 
