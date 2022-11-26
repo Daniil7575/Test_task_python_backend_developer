@@ -4,9 +4,10 @@
 git clone https://github.com/Daniil7575/Test_task_python_backend_developer.git
 ```
 
-2) Перейдите в папку ***stripe_project*** и соберите контейнер
+2) Перейдите в папку ***stripe_project*** и соберите, а затем запустите контейнер
 ```
 sudo docker compose build
+sudo docker compose up
 ```
 
 3) По желанию создайте суперпользователя на сервере для взаимодействия с админ-панелью.
