@@ -30,7 +30,7 @@ data_coupon = (
     (3, '10off', '2022-11-26 15:00:00', '2022-11-26 19:00:00', 5, True),
 )
 [cur.execute(f"insert into public.payment_item values('{id}', '{name}', '{desc}', '{price}') on conflict(id) do nothing;") for id, name, desc, price in data_item]
-[cur.execute(f"insert into public.coupon_coupon values('{id}', '{code}, '{vfrom}', '{vto}', '{discount}', '{active}') on conflict(id) do nothing;") for id, code, vfrom, vto, discount, active in data_coupon]
+[cur.execute(f"insert into public.coupon_coupon values('{id}', '{code}', '{vfrom}', '{vto}', '{discount}', '{active}') on conflict(id) do nothing;") for id, code, vfrom, vto, discount, active in data_coupon]
 conn.commit()
 cur.close()
 conn.close()
