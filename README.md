@@ -29,9 +29,10 @@ sudo docker compose exec web python3 manage.py createsuperuser
 
 # Тестовый сервер
 5.1) Также сайт доступен на удаленном серевере - http://spovtiz6.beget.tech/ с точно такими же эндпоинтами
+
 доступный купон - `10_off`
 
-Эндпоинты:
+# Эндпоинты:
 
 `item/` - каталог товаров
 
