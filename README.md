@@ -1,4 +1,5 @@
 # Тестовое задание
+
 1) Cклонируйте репозиторий в удобную папку (желательно, чтобы в пути не было кириллицы)
 ```
 git clone https://github.com/Daniil7575/Test_task_python_backend_developer.git
@@ -18,6 +19,17 @@ sudo docker compose exec web python3 manage.py createsuperuser
 
 5) Зайдите на веб интерфейс по адресу - `http://0.0.0.0:8000/item/` 
                                  либо - `http://localhost:8000/item/`
+Доступные купоны - 
+### Валидный купон
+`5poff`
+### Неактивный купон
+`100percentoff`
+### Просроченный купон
+`10off`
+
+# Тестовый сервер
+5.1) Также сайт доступен на удаленном серевере - http://spovtiz6.beget.tech/ с точно такими же эндпоинтами
+доступный купон - `10_off`
 
 Эндпоинты:
 
